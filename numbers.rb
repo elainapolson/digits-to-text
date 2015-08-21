@@ -61,15 +61,16 @@ class DigitsToText
   def hundreds(number)
     remainder = number % 100
     @text += DICTIONARY[(number - remainder)]
-    tens(remainder)
+    if remainder > 0
+      check_value(remainder)
+    end
   end
 
   def tens(number)
-    if number < 20
-      zero_to_nineteen(number)
-    else
-      remainder = number % 10
-      @text += DICTIONARY[(number - remainder)]
+    remainder = number % 10
+    @text += DICTIONARY[(number - remainder)]
+    if remainder > 0
+      check_value(remainder)
     end
   end
 
@@ -84,6 +85,7 @@ class DigitsToText
 
 end
 
+DigitsToText.new(-100).run
 DigitsToText.new(101).run
 DigitsToText.new(219).run
 DigitsToText.new(243).run
