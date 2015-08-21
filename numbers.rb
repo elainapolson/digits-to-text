@@ -60,7 +60,7 @@ class DigitsToText
 
   def hundreds(number)
     remainder = number % 100
-    @text += DICTIONARY[(number - remainder)]
+    @text += DICTIONARY[(number - remainder)] + " "
     if remainder > 0
       check_value(remainder)
     end
@@ -68,7 +68,7 @@ class DigitsToText
 
   def tens(number)
     remainder = number % 10
-    @text += DICTIONARY[(number - remainder)]
+    @text += DICTIONARY[(number - remainder)] + " "
     if remainder > 0
       check_value(remainder)
     end
@@ -80,21 +80,7 @@ class DigitsToText
 
   def run
     check_value(@number)
-    puts @text
+    return @text.strip
   end
 
 end
-
-DigitsToText.new(-100).run
-DigitsToText.new(101).run
-DigitsToText.new(219).run
-DigitsToText.new(243).run
-DigitsToText.new(589).run
-DigitsToText.new(999).run
-DigitsToText.new(-928).run
-DigitsToText.new(-1).run
-DigitsToText.new(-13).run
-DigitsToText.new(4).run
-DigitsToText.new(-999).run
-DigitsToText.new(-101).run
-DigitsToText.new(-219).run
